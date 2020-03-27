@@ -1,0 +1,14 @@
+<form class="cric-form">
+  <mat-form-field class="example-full-width">
+    <input matInput   type="text" placeholder="Player name" name="pName" [formControl]="pName"  >
+    <mat-error *ngIf="pName.invalid && (pName.dirty || pName.touched)">Please Enter Player Name
+      </mat-error>
+  </mat-form-field>
+  <div >
+  <button [disabled]="pName.invalid" mat-raised-button (click)="doSearch()" color="primary">Search</button>
+  </div>
+
+ 
+</form>
+
+

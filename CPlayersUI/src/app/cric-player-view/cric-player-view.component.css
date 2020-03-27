@@ -1,0 +1,65 @@
+.wrapper{
+    background-image: url('/img/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.playercard{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color:  rgba(255, 255, 255, 0.6);
+}
+.profileImg, .profileTitle
+, .profileBlocks{
+    float: left;
+    width: 100%;
+}
+.profileImg img{
+    display: block;
+    margin: 0px auto;
+    border-radius: 50%;
+}
+.profileTitle h1{
+    text-align: center;
+    margin: 10px 0;
+    font-size: 30px;
+    font-family: cursive;
+}
+.profileBlocks{
+    box-shadow: 2px 4px 30px navy;
+    margin-bottom: 20px;
+}
+.profileBlocks table{
+    margin: 0;
+}
+.profileDesc, .profileLinkBtn{
+    float: left;
+    width: 100%;
+    /* background-color:navy; */
+    border-top: 1px solid #454d55;
+}
+.profileDesc p{
+    color: #6f42c1;
+    padding: 15px;
+}
+.profileBlocks h3{
+    color: #6f42c1;
+    text-align: center;
+    font-size: 20px;
+    margin: 0;
+    padding: 20px;
+}
+.profileLinkBtn{
+    padding: 20px;
+}
+.profileLinkBtn button{
+    width: 46%;
+    float: left;
+    margin: 0 2%;
+}
+.success-like {
+    color: hotpink;
+  }
+
+  .mat-snack-bar-container{
+    background: navy;
+  }

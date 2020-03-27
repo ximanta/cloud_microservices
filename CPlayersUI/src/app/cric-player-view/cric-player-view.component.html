@@ -1,0 +1,103 @@
+<div class="wrapper" *ngIf="player">
+    <div class="container">
+
+        <div class="row">
+            <div class="offset-md-3 col-md-6 col-sm-12 col-xs-12 playercard">
+                <div class="profileImg">
+                    <img src="{{player.imageURL}}" alt="Profile Image">
+                </div>
+                <div class="profileTitle">
+                    <h1>{{player.fullName}}</h1>
+                </div>
+                <div class="profileBlocks">
+                    <table class="table table-striped ">
+                        <tbody>
+                            <tr>
+                                <th>Plays for</th>
+                                <td>{{player.country}}</td>
+                            </tr>
+                            <tr>
+                                <th>Age</th>
+                                <td>{{player.currentAge}}</td>
+                            </tr>
+                            <tr>
+                                <th>Born</th>
+                                <td>{{player.born}}</td>
+                            </tr>
+                            <tr>
+                                <th>Batting Style</th>
+                                <td>{{player.battingStyle}}</td>
+                            </tr>
+                            <tr>
+                                <th>Bowling Style</th>
+                                <td>{{player.bowlingStyle}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="profileDesc">
+                        <p>{{player.profile}}</p>
+                    </div>
+                </div>
+                <div class="profileBlocks">
+                    <h3>Batting Performance - as in the API</h3>
+                    <table class="table table-striped  table-responsive">
+                        <ng-container *ngFor="let item of player.data.batting|keyvalue ;let i=index">
+                            <ng-container *ngIf="i===0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">League</th>
+
+
+                                        <th *ngFor="let data of item.value|keyvalue" scope="col">{{data.key}}</th>
+                                    </tr>
+                                </thead>
+                            </ng-container>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">{{item.key}}</th>
+                                    <th *ngFor="let data of item.value|keyvalue" scope="col">{{data.value}}</th>
+                                </tr>
+                            </tbody>
+
+
+                        </ng-container>
+
+                    </table>
+                </div>
+                <div class="profileBlocks">
+                    <h3>Bowling Performance - as in the API</h3>
+                    <table class="table table-striped  table-responsive">
+                        <ng-container *ngFor="let item of player.data.bowling|keyvalue ;let i=index">
+                            <ng-container *ngIf="i===0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">League</th>
+
+
+                                        <th *ngFor="let data of item.value|keyvalue" scope="col">{{data.key}}</th>
+                                    </tr>
+                                </thead>
+                            </ng-container>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">{{item.key}}</th>
+                                    <th *ngFor="let data of item.value|keyvalue" scope="col">{{data.value}}</th>
+                                </tr>
+                            </tbody>
+
+
+                        </ng-container>
+
+                    </table>
+                </div>
+                <div class="profileBlocks">
+                    <div class="profileLinkBtn">
+                        <button type="button" (click)="likePlayer()" class="btn btn-secondary btn-lg">Like</button>
+                        <button type="button" (click)="back()" class="btn btn-secondary btn-lg">Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

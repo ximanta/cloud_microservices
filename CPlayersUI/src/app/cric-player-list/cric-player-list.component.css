@@ -1,0 +1,53 @@
+.cric-card {
+  /* display:flex; */
+    width: 400px;
+    height: 150px;
+    margin-left:10px;
+    margin-top:10px;
+    /* //color: gray; */
+    /* background: rgb(red, green, blue); */
+  }
+  
+  .cric-panel {
+    display:flex;
+    margin-top:50px;
+    }
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .container {
+    max-width: 1335px;
+    margin: 0 auto;
+  }
+  .grid-row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+  }
+  .grid-item {
+    height: 550px;
+    flex-basis: 20%;
+    /* -ms-flex: auto; */
+    width: 259px;
+    position: relative;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .flex-container {
+    margin-top:50px;
+    margin-left:10px;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    /* align-items: center; */
+    /* align-content: space-between; */
+  }
+  .button{
+    margin-left: 300px;
+  }
+  .response-status{
+    /* //margin-left: 300px; */
+    color: #3f51b5;
+  }

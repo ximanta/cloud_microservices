@@ -1,0 +1,24 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+
+  .cric-nav {
+    display:flex;
+    flex-direction: row;
+    overflow: auto
+  }
+  .menu-spacer {
+    flex: 1 1 auto;
+  }
+  .navbar-background{
+    background-color:#3f51b5 !important;
+    border-bottom: 2px solid white;
+}
+
+.btn-outline-success {
+    color: white !important;
+    border-color:white !important;
+}
+.navbar-margin{
+    margin-right:100px;
+}

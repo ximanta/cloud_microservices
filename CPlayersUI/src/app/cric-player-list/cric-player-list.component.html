@@ -1,0 +1,26 @@
+<div class="flex-container">
+   <span class="response-status" *ngIf="players&&players.length===0">No Players Found</span>
+  <ng-container *ngFor="let player of players">
+
+    <mat-card class="cric-card">
+      <mat-card-header>
+
+        <mat-card-title>{{player.fullName}}</mat-card-title>
+        <mat-card-subtitle>{{player.name}}</mat-card-subtitle>
+      </mat-card-header>
+
+
+      <mat-card-actions class="button"  *ngIf="!isLikedAlready(player.pid)">
+
+        <button mat-button color="primary"
+          (click)="viewPlayer(player.pid)">View</button>
+
+      </mat-card-actions>
+      <ng-container *ngIf="isLikedAlready(player.pid)">
+        <img src="assets/images/thumps-up.png" width="70px" height="70px">
+      </ng-container>
+
+    </mat-card>
+
+  </ng-container>
+</div>

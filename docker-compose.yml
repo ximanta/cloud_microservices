@@ -1,0 +1,88 @@
+
+networks: 
+  cric-network: 
+services: 
+  cric-ui: 
+    build: CPlayersUI/
+    container_name: cricui-container
+    image: "cric-ui:v1"
+    networks: 
+      - cric-network
+    ports: 
+      - "8080:8080"
+  eureka-services: 
+    build: netflix-eureka-naming-server/
+    container_name: eurekacontainer
+    image: "eureka-service:v1"
+    networks: 
+      - cric-network
+    ports: 
+      - "8761:8761"
+  favourite-backend: 
+    build: favouriteservice/
+    container_name: favourite-container
+    depends_on: 
+      - mongo
+      - rabbitmq
+    image: "favouriteservice-image:v1"
+    networks: 
+      - cric-network
+    ports: 
+      - "8084:8084"
+    restart: always
+  mongo: 
+    container_name: mongo-container
+    image: "mongo:3.4-xenial"
+    networks: 
+      - cric-network
+    ports: 
+      - "27017:27017"
+  mysql: 
+    container_name: mysql-container
+    environment: 
+      MYSQL_ROOT_PASSWORD: root
+    image: "mysql:5.5"
+    networks: 
+      - cric-network
+    ports: 
+      - "3306:3306"
+  rabbitmq: 
+    container_name: rabbitmq-container
+    image: "rabbitmq:3.7-management"
+    networks: 
+      - cric-network
+    ports: 
+      - "15672:15672"
+      - "5672:5672"
+  recommend-backend: 
+    build: playerrecommendationservice/
+    container_name: recommend-container
+    depends_on: 
+      - mongo
+      - rabbitmq
+    image: "recommend-image:v1"
+    networks: 
+      - cric-network
+    ports: 
+      - "8085:8085"
+    restart: always
+  user-backend: 
+    build: userservice/
+    container_name: user-container
+    depends_on: 
+      - mysql
+    image: "userservice-image:v1"
+    networks: 
+      - cric-network
+    ports: 
+      - "8083:8083"
+    restart: always
+  zull-services: 
+    build: netflix-zuul-api-gateway-server/
+    container_name: zullcontainer
+    image: "zull-service:v1"
+    networks: 
+      - cric-network
+    ports: 
+      - "8765:8765"
+version: "2"

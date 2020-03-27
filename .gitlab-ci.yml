@@ -1,0 +1,30 @@
+image: 'maven:3-jdk-8'
+stages:
+  - test 
+  - build
+services:
+  - 'mysql:5.5'
+  - 'mongo:3.4-jessie'
+variables:
+    MYSQL_DATABASE: "userDb"
+    MYSQL_URL: "jdbc:mysql://mysql/userDb"
+    MYSQL_USER: "app_root"
+    MYSQL_PASSWORD: "root" 
+    MYSQL_ROOT_PASSWORD: "root"
+    MONGO_DATABASE: "muzixdb"
+    MONGO_URL: "mongodb://mongo/muzixdb"
+    MONGO_PORT: "27017"
+    MONGO_HOST: "mongo"
+cache:
+    paths:
+     - .m2/repository
+     - target
+maven-test:
+   stage: test
+   script: "mvn test -Denv=dev"
+maven-build:
+    stage: build
+    script: 'mvn package -Denv=dev'
+    artifacts:
+      paths: 
+        - target/*.jar

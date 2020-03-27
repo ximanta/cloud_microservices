@@ -1,0 +1,43 @@
+<div class="register-form" > 
+
+<mat-toolbar>
+  <span>Registration</span>
+</mat-toolbar>
+
+<mat-card class="my-card">
+  <mat-card-content>
+    <form class="my-form">
+      <strong *ngIf="submitMessage" class="error-message">{{submitMessage}}</strong>
+       <mat-form-field class="full-width">
+              <mat-label>First Name</mat-label>
+              <input  matInput  placeholder="First name" name="firstname"  [formControl]="firstname"  >
+              <mat-error *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)">FirstName Cannot Be Left Blank</mat-error>
+           </mat-form-field>
+           <mat-form-field class="full-width">
+              <mat-label>Last Name</mat-label>
+              <input  matInput  placeholder="Last Name"  name="lastname"  [formControl]="lastname"  >
+              <mat-error *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">LastName Cannot Be Left Blank</mat-error>
+           </mat-form-field>
+         
+           <mat-form-field class="full-width">
+              <mat-label>UserName</mat-label>
+              <input  matInput  placeholder="UserName"    name="username"  [formControl]="username">
+              <mat-error *ngIf="username.invalid && (username.dirty || username.touched)">Username Cannot Be Left Blank</mat-error>
+           </mat-form-field>
+           <mat-form-field class="full-width">
+              <mat-label>Password</mat-label>
+              <input class="password" type="password"  name="password" matInput  placeholder="Password"   [formControl]="password">
+              <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
+                  <mat-error *ngIf="password.errors.required">Password Cannot Be Left Blank</mat-error>
+                  <mat-error *ngIf="password.errors.minlength">Password Must Have Minimum 6 Characters</mat-error>
+              </mat-error>
+           </mat-form-field>
+    </form>
+  </mat-card-content>
+  
+  
+  <mat-card-actions>
+    <button  [disabled]="(firstname.invalid||lastname.invalid||username.invalid || password.invalid)" mat-raised-button (click)="register()" color="primary">Register</button>
+  </mat-card-actions>
+</mat-card>
+</div>
